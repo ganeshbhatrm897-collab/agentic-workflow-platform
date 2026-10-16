@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Agentic Workflow Orchestration Platform</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Workflow Studio home">
+      <span class="brand-mark" aria-hidden="true">W</span>
+      <span>Workflow<span class="brand-light">Studio</span></span>
+    </a>
+    <div class="topbar-right">
+      <span class="local-label"><span class="status-dot"></span> Local workspace</span>
+      <span id="mode-badge" class="mode-badge">Checking mode…</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-line"></span> PLAN · EXECUTE · VALIDATE</div>
+      <h1>Agentic Workflow<br><span>Orchestration Platform</span></h1>
+      <p>Turn a task into a transparent, step-by-step workflow. Specialized agents work through your request locally and show how each result was produced.</p>
+    </section>
+
+    <section class="workspace-grid" aria-label="Workflow workspace">
+      <div class="main-column">
+        <section class="panel composer" aria-labelledby="task-heading">
+          <div class="section-heading">
+            <div><span class="section-index">01</span><h2 id="task-heading">Describe your task</h2></div>
+            <button id="reset-button" class="text-button" type="button">New workflow</button>
+          </div>
+          <label class="sr-only" for="task-input">Task description</label>
+          <textarea id="task-input" maxlength="10000" rows="5" placeholder="What would you like the agents to work on? Include any source text or context…"></textarea>
+          <div class="composer-footer">
+            <span class="input-hint">Your request stays in this local app history.</span>
+            <button id="run-button" class="primary-button" type="button"><span>Run workflow</span><span aria-hidden="true">↗</span></button>
+          </div>
+          <div id="error-banner" class="error-banner" role="alert" hidden></div>
+        </section>
+
+        <section class="panel examples-panel" aria-labelledby="examples-heading">
+          <div class="section-heading compact">
+            <div><span class="section-index">TRY</span><h2 id="examples-heading">Start with a demo</h2></div>
+            <span class="muted-caption">No API key needed</span>
+          </div>
+          <div id="example-list" class="example-list" aria-label="Built-in demo scenarios"></div>
+        </section>
+
+        <section id="execution-panel" class="panel execution-panel" aria-labelledby="execution-heading" hidden>
+          <div class="section-heading">
+            <div><span class="section-index">02</span><h2 id="execution-heading">Workflow execution</h2></div>
+            <span id="workflow-status" class="status-pill"></span>
+          </div>
+          <div id="plan-list" class="plan-list"></div>
+          <div class="execution-lower">
+            <section class="subsection" aria-labelledby="events-heading">
+              <h3 id="events-heading">Execution timeline</h3>
+              <ol id="event-list" class="event-list"></ol>
+            </section>
+            <section class="subsection" aria-labelledby="result-heading">
+              <h3 id="result-heading">Final result</h3>
+              <pre id="final-result" class="final-result"></pre>
+              <div id="structured-output" class="structured-output"></div>
+            </section>
+          </div>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="panel agent-panel" aria-labelledby="agents-heading">
+          <div class="section-heading compact">
+            <div><span class="section-index">ROSTER</span><h2 id="agents-heading">Your agents</h2></div>
+            <span id="agent-count" class="count-badge">—</span>
+          </div>
+          <p class="panel-intro">A focused team of logical agents, coordinated in sequence.</p>
+          <ul id="agent-list" class="agent-list"></ul>
+        </section>
+        <section class="panel history-panel" aria-labelledby="history-heading">
+          <div class="section-heading compact">
+            <div><span class="section-index">RECENT</span><h2 id="history-heading">Workflow history</h2></div>
+          </div>
+          <div id="history-list" class="history-list"><p class="empty-note">Your recent workflows will appear here.</p></div>
+        </section>
+        <div class="safety-note"><span aria-hidden="true">i</span><p>Runs locally and sequentially. Research is simulated; no external actions or live web searches are performed.</p></div>
+      </aside>
+    </section>
+    <footer>Built for clear, safe, human-readable workflow automation.</footer>
+  </main>
+</body>
+</html>
